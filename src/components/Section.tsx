@@ -15,7 +15,7 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="relative px-4 py-24 sm:px-6 sm:py-32">
+    <section id={id} className="relative scroll-mt-24 px-4 py-24 sm:px-6 sm:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
