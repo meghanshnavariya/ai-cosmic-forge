@@ -177,8 +177,8 @@ export function AnimeCursor() {
       // katana-style energy trail
       if (trail.length > 2) {
         for (let i = trail.length - 1; i > 0; i--) {
-          const p = trail[i];
-          const n = trail[i - 1];
+          const p = trail[i]!;
+          const n = trail[i - 1]!;
           const t = 1 - i / trail.length;
           ctx.strokeStyle = `hsla(${BLUE + (PURPLE - BLUE) * (1 - t)}, 95%, ${58 + t * 20}%, ${t * 0.5})`;
           ctx.lineWidth = Math.max(0.4, t * (radius * 0.55));
@@ -192,7 +192,7 @@ export function AnimeCursor() {
 
       // particles
       for (let i = particles.length - 1; i >= 0; i--) {
-        const p = particles[i];
+        const p = particles[i]!;
         p.life += dt;
         if (p.life > p.maxLife) {
           particles.splice(i, 1);
@@ -211,7 +211,7 @@ export function AnimeCursor() {
 
       // ripples
       for (let i = ripples.length - 1; i >= 0; i--) {
-        const r = ripples[i];
+        const r = ripples[i]!;
         r.life += dt;
         r.r += dt * 0.22;
         const a = 1 - r.life / 520;
@@ -285,7 +285,7 @@ export function AnimeCursor() {
         ctx.lineWidth = 1.2;
         const s = radius * 1.9;
         const c = s * 0.55;
-        const corners = [
+        const corners: [number, number][] = [
           [-1, -1],
           [1, -1],
           [-1, 1],
